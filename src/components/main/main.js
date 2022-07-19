@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../common/nav/nav";
 import PannelContainer from "./pannelContainer";
 import styled from "styled-components";
 
