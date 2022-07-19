@@ -9,13 +9,14 @@ const Container = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #cbcbcb;
   > h1 {
     font-weight: 600;
     margin-right: 225px;
   }
   .navItem {
     display: flex;
-    width: 209px;
+    width: 299px;
     height: 40px;
     align-items: center;
     justify-content: space-between;
