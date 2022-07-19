@@ -1,4 +1,3 @@
-import "./style/font.css";
 import Router from "./Router";
 function App() {
   return <Router />;

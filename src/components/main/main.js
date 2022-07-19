@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import DropDown from "../common/dropDown/dropDown";
+import React from "react";
+import Nav from "../common/nav/nav";
 
 const Main = () => {
-  return <></>;
+  return <Nav></Nav>;
 };
 
 export default Main;
