@@ -25,14 +25,14 @@ const Login = () => {
                         <h1>Login</h1>
                         <div className="main_text">
                             <h5>Email</h5>
-                            <input type="text" />
+                            <input type="text" className="in" placeholder="이메일을 입력해 주세요" />
                         </div>
                         <div className="main_text_two">
                             <h5>Password</h5>
-                            <input type="text" />
+                            <input type="text" className="inin" placeholder="비밀번호를 입력해 주세요" />
                         </div>
                         <div className="main_button">
-                            <input type="button" value="로그인" />
+                            <input type="button" className="ininin" value="로그인" />
                         </div>
 
                     </div>
