@@ -4,61 +4,64 @@ import TESTIMG from "../../assets/img/testImg.png";
 
 const DetailPage = () => {
   return (
-    <DetailPageWrapper>
-      <MainContainer>
-        <NavBar>
-          <NavBarMent>프로젝트</NavBarMent>
-        </NavBar>
+    <>
+      <DetailPageWrapper>
+        <MainContainer>
+          <NavBar>
+            <NavBarMent>프로젝트</NavBarMent>
+          </NavBar>
 
-        <ContentContanier>
-          {/* title */}
-          <ContentImportantInfoTitle>
-            삼성 주소창 팀 모집(웹)
-          </ContentImportantInfoTitle>
-
-          {/* img */}
-          <ContentImageContanier>
-            <ContentImage src={TESTIMG} alt="배경사진" />
-          </ContentImageContanier>
-
-          <ContentButtonContanier>
-            <button>지원하기</button>
-          </ContentButtonContanier>
-        </ContentContanier>
-
-        {/* info */}
-        <ContentInfoWrpper>
-          <ProjectExplanationContainer>
+          <ContentContanier>
             {/* title */}
-            <ProjectExplanationTitle>프로젝트 설명</ProjectExplanationTitle>
+            <ContentImportantInfoTitle>
+              삼성 주소창 팀 모집(웹)
+            </ContentImportantInfoTitle>
 
-            {/* content */}
-            <ProjectExplanationContent>
-              도담도담도담도담도담도 담도담도 담도담도담 도담도담 도담도담도담도
-              담도담도도담도담도 담도 담도 담 도담도 담 도담도담도담
-              도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담
-              도담도담도담도
-            </ProjectExplanationContent>
-          </ProjectExplanationContainer>
+            {/* img */}
+            <ContentImageContanier>
+              <ContentImage src={TESTIMG} alt="배경사진" />
+            </ContentImageContanier>
 
-          <DoingItWorkContainer>
-            {/* title */}
-            <DoingItWorkTitle>해야하는 일</DoingItWorkTitle>
+            <ContentButtonContanier>
+              <button>지원하기</button>
+            </ContentButtonContanier>
+          </ContentContanier>
 
-            {/* content */}
-            <DoingItWorkContent>NavBar를 만들어 주세요</DoingItWorkContent>
-          </DoingItWorkContainer>
+          {/* info */}
+          <ContentInfoWrpper>
+            <ProjectExplanationContainer>
+              {/* title */}
+              <ProjectExplanationTitle>프로젝트 설명</ProjectExplanationTitle>
 
-          <TeamInfoContanier>
-            {/* title */}
-            <TeamInfoTitle>팀 정보</TeamInfoTitle>
+              {/* content */}
+              <ProjectExplanationContent>
+                도담도담도담도담도담도 담도담도 담도담도담 도담도담
+                도담도담도담도 담도담도도담도담도 담도 담도 담 도담도 담
+                도담도담도담
+                도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담
+                도담도담도담도
+              </ProjectExplanationContent>
+            </ProjectExplanationContainer>
 
-            {/* content */}
-            <TeamInfoContent>정우재 금현호 유은재</TeamInfoContent>
-          </TeamInfoContanier>
-        </ContentInfoWrpper>
-      </MainContainer>
-    </DetailPageWrapper>
+            <DoingItWorkContainer>
+              {/* title */}
+              <DoingItWorkTitle>해야하는 일</DoingItWorkTitle>
+
+              {/* content */}
+              <DoingItWorkContent>NavBar를 만들어 주세요</DoingItWorkContent>
+            </DoingItWorkContainer>
+
+            <TeamInfoContanier>
+              {/* title */}
+              <TeamInfoTitle>팀 정보</TeamInfoTitle>
+
+              {/* content */}
+              <TeamInfoContent>정우재 금현호 유은재</TeamInfoContent>
+            </TeamInfoContanier>
+          </ContentInfoWrpper>
+        </MainContainer>
+      </DetailPageWrapper>
+    </>
   );
 };
 

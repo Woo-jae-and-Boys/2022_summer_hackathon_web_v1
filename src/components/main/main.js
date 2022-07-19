@@ -12,7 +12,6 @@ const Container = styled.div`
 const Main = () => {
   return (
     <Container>
-      <Nav />
       <div>
         <PannelContainer />
       </div>
