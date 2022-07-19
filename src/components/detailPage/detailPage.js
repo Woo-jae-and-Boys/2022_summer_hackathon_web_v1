@@ -135,18 +135,12 @@ export const ContentImageContanier = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #efefef;
-  transition: 0.7s;
-  cursor: pointer;
   overflow: hidden;
+  user-select: none;
 `;
 
 export const ContentImage = styled.img`
   width: 62%;
-  transition: 0.5s;
-  &:hover {
-    filter: brightness(80%);
-    transform: scale(1.05);
-  }
 `;
 export const ContentInfoWrpper = styled.div`
   width: 100%;
