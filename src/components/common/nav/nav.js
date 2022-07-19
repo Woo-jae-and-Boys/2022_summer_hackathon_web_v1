@@ -14,6 +14,10 @@ const Container = styled.div`
     font-weight: 600;
     margin-right: 225px;
   }
+  #slash::after {
+    content: "|";
+    padding: 0 20px;
+  }
   .navItem {
     display: flex;
     width: 299px;
@@ -44,12 +48,12 @@ const Nav = () => {
       <div className="searchBar">{/* <input></input> */}</div>
       <div className="authContainer">
         <h2>
-          <Link to={"/signup"}>회원가입 /</Link>
+          <Link to={"/signup"}>회원가입</Link>
         </h2>
+        <div id="slash" />
         <h2>
           <Link to={"/signin"}> 로그인</Link>
         </h2>
-        <BiUser size={"40px"} />
       </div>
     </Container>
   );
