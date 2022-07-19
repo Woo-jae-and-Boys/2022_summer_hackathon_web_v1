@@ -18,8 +18,18 @@ const DropDown = ({ defaultValue, childValue, setSeletedValue }) => {
 };
 
 export const DropDownSelect = styled.select`
+  width: 100%;
+  height: 57%;
+  margin-top: 2%;
+  padding-left: 10px;
   outline: none;
-  padding: 8px;
+  font-size: 1.1rem;
+  background-color: #efefef;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  option {
+    background-color: #fff;
+  }
 `;
 
 export default DropDown;
