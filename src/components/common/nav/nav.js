@@ -32,8 +32,8 @@ const Container = styled.div`
   .searchBar {
   }
   .authContainer {
-    transform: translateX(600%);
-
+    position: absolute;
+    right: 40px;
     display: flex;
     align-items: center;
   }
