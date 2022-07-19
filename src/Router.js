@@ -7,6 +7,7 @@ import CPC from "./components/createContent/createProjectContent";
 import Login from "./components/login/login";
 import SignUp from "./components/signUp/signUp";
 import CEC from "./components/createContent/createErrandsContent";
+import CDC from "./components/createContent/createDeliveryContent";
 
 const Router = () => {
   const { pathname } = useLocation();
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/detailpage" element={<DetailPage />} />
         <Route path="/cpc" element={<CPC />} />
         <Route path="/cec" element={<CEC />} />
+        <Route path="cdc" element={<CDC />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<Login />} />
       </Routes>

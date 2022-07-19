@@ -60,22 +60,12 @@ const CreateContent = () => {
             <div>제목</div>
             <TitleInput type="text" placeholder="제목 입력" />
           </TitleContainer>
-
-          <DevPositionContainer>
-            <div>분야 선택</div>
-            <DropDown
-              id="dropDown"
-              defaultValue={"분야"}
-              childValue={value}
-              setSeletedValue={setChildValue}
-            />
-          </DevPositionContainer>
         </TitleAndDevPositionContainer>
 
         <ProjectExplanationAndDoingItWorkContainer>
           <ProjectExplanationWrapper>
-            <div>프로젝트 설명</div>
-            <ProjectExplanationInput placeholder="프로젝트를 설명해 주세요." />
+            <div>배달 음식</div>
+            <ProjectExplanationInput placeholder="배달 음식을 적어 주세요." />
           </ProjectExplanationWrapper>
 
           <DoingItWorkContainer>
@@ -89,11 +79,8 @@ const CreateContent = () => {
 
         <TeamInfoAndOthersContanier>
           <TeamInfoContanier>
-            <div>팀 설명 & 정보</div>
-            <TeamInfoInput
-              type="text"
-              placeholder="팀 설명 & 정보를 적어주세요."
-            />
+            <div>배달 정보</div>
+            <TeamInfoInput type="text" placeholder="배달 정보를 적어주세요." />
           </TeamInfoContanier>
 
           <OthersContanier>
@@ -202,12 +189,10 @@ export const CreateContentSubmitButton = styled.div`
 export const TitleAndDevPositionContainer = styled.div`
   width: 100%;
   height: 100px;
-  display: flex;
-  justify-content: space-between;
 `;
 
 export const TitleContainer = styled.div`
-  width: 48%;
+  width: 100%;
   height: 100%;
   div {
     font-size: 1.3rem;
