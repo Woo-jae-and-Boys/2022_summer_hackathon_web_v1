@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Nav from "../common/nav/nav";
 import PannelContainer from "./pannelContainer";
 import styled from "styled-components";
 import useMain from "../../hooks/main/useMain";
@@ -54,7 +53,6 @@ const Main = () => {
   }, [getProjectItems, getErrandItems]);
   return (
     <Wrapper>
-      <Nav />
       <PannelContainer />
       <Container>
         <>
