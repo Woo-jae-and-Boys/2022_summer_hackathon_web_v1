@@ -43,7 +43,7 @@ const useSignUp = () => {
       .catch(() => {
         Swal.fire({
           title: "실패...",
-          text: "회원가입에 실패 하였습니다. 다시 시도 하여 주십시요.",
+          text: "회원가입에 실패 하였습니다. 다시 시도해 주십시오.",
           icon: "error",
           confirmButtonText: "확인",
         });
