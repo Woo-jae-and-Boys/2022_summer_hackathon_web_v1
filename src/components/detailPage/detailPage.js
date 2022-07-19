@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TESTIMG from "../../assets/img/testImg.png";
+import { FcTwoSmartphones } from "react-icons/fc";
 
 const DetailPage = () => {
   return (
@@ -8,6 +9,7 @@ const DetailPage = () => {
       <DetailPageWrapper>
         <MainContainer>
           <NavBar>
+            <FcTwoSmartphones style={{ fontSize: "33px" }} />
             <NavBarMent>프로젝트</NavBarMent>
           </NavBar>
 
@@ -39,7 +41,7 @@ const DetailPage = () => {
                 도담도담도담도 담도담도도담도담도 담도 담도 담 도담도 담
                 도담도담도담
                 도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도담도도담도담도담도담도담도담도담도담도담도담도담도담도담도담
-                도담도담도담도
+                도담도담도담도 담도담도담담 도도도담담
               </ProjectExplanationContent>
             </ProjectExplanationContainer>
 
@@ -48,7 +50,21 @@ const DetailPage = () => {
               <DoingItWorkTitle>해야하는 일</DoingItWorkTitle>
 
               {/* content */}
-              <DoingItWorkContent>NavBar를 만들어 주세요</DoingItWorkContent>
+              <DoingItWorkContent>
+                NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요NavBar를 만들어 주세요NavBar를 만들어
+                주세요NavBar를 만들어 주세요NavBar를 만들어 주세요NavBar를
+                만들어 주세요
+              </DoingItWorkContent>
             </DoingItWorkContainer>
 
             <TeamInfoContanier>
@@ -56,7 +72,15 @@ const DetailPage = () => {
               <TeamInfoTitle>팀 정보</TeamInfoTitle>
 
               {/* content */}
-              <TeamInfoContent>정우재 금현호 유은재</TeamInfoContent>
+              <TeamInfoContent>
+                정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재정우재 금현호 유은재정우재 금현호
+                유은재정우재 금현호 유은재
+              </TeamInfoContent>
             </TeamInfoContanier>
           </ContentInfoWrpper>
         </MainContainer>
@@ -68,7 +92,6 @@ const DetailPage = () => {
 export const DetailPageWrapper = styled.div`
   width: 100vw;
   height: calc(100vh - 110px);
-  padding-top: 110px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -82,7 +105,7 @@ export const NavBar = styled.div`
 `;
 
 export const NavBarMent = styled.div`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
 `;
 
@@ -94,7 +117,6 @@ export const MainContainer = styled.div`
 
 export const ContentContanier = styled.div`
   width: 100%;
-  height: 50%;
   flex-direction: column;
   display: grid;
   gap: 20px;
@@ -108,19 +130,17 @@ export const ContentImportantInfoTitle = styled.div`
 
 export const ContentImageContanier = styled.div`
   width: 100%;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #efefef;
-  transition: 0.7s;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(80%);
-  }
+  overflow: hidden;
+  user-select: none;
 `;
 
 export const ContentImage = styled.img`
-  width: 60%;
+  width: 62%;
 `;
 export const ContentInfoWrpper = styled.div`
   width: 100%;
@@ -198,17 +218,5 @@ export const TeamInfoContent = styled.div`
   font-size: 1.2rem;
   line-height: 1.7em;
 `;
-
-// export const ProjectExplanationTitle =styled.div`
-
-// `;
-
-// export const ProjectExplanationTitle =styled.div`
-
-// `;
-
-// export const ProjectExplanationTitle =styled.div`
-
-// `;
 
 export default DetailPage;
