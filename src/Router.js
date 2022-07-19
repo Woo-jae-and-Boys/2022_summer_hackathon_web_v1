@@ -5,10 +5,11 @@ import DetailPage from "./components/detailPage/detailPage";
 import Nav from "./components/common/nav/nav";
 import Login from "./components/login/login";
 import SignUp from "./components/signUp/signUp";
+import useAuth from "./hooks/auth/useAuth";
 
 const Router = () => {
   const { pathname } = useLocation();
-
+  useAuth();
   return (
     <>
       {pathname !== ("/signin" && "/signup") && <Nav />}

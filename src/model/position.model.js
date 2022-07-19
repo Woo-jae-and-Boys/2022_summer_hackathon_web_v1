@@ -1,0 +1,1 @@
+export const POSITION = ["프론트 엔드", "백 엔드", "AI", "게임", "안드로이드", "IOS"] 

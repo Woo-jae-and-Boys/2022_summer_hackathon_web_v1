@@ -10,8 +10,8 @@ const DropDown = ({ defaultValue, childValue, setSeletedValue }) => {
       <option selected disabled>
         {defaultValue}
       </option>
-      {childValue.map((item) => {
-        return <option>{item}</option>;
+      {childValue.map((item, idx) => {
+        return <option key={idx}>{item}</option>;
       })}
     </DropDownSelect>
   );

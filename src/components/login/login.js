@@ -1,7 +1,9 @@
 import "./login.css";
 import DGSWIMG from "../../img/dgswimg.png";
+import useLogin from "../../hooks/login/useLogin";
 
 const Login = () => {
+  const { tryLogin, setEmail, setPassword } = useLogin();
   return (
     <div>
       <div className="Login">
@@ -31,18 +33,31 @@ const Login = () => {
                   type="text"
                   className="in"
                   placeholder="이메일을 입력해 주세요"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </div>
               <div className="main_text_two">
                 <h5>Password</h5>
                 <input
-                  type="text"
+                  type="password"
                   className="inin"
                   placeholder="비밀번호를 입력해 주세요"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
               </div>
               <div className="main_button">
-                <input type="button" className="ininin" value="로그인" />
+                <input
+                  type="button"
+                  className="ininin"
+                  value="로그인"
+                  onClick={() => {
+                    tryLogin();
+                  }}
+                />
               </div>
             </div>
           </div>

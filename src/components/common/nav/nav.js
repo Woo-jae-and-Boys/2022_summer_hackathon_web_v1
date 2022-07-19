@@ -20,6 +20,9 @@ const Container = styled.div`
     height: 40px;
     align-items: center;
     justify-content: space-between;
+    > h2 {
+      cursor: pointer;
+    }
   }
   .searchBar {
   }
@@ -35,7 +38,9 @@ const Container = styled.div`
 const Nav = () => {
   return (
     <Container>
-      <h1>DAEINSO</h1>
+      <h1>
+        <Link to={"/"}>DAEINSO</Link>
+      </h1>
       <div className="navItem">
         <h2>프로젝트</h2>
         <h2>심부름</h2>
