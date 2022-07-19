@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userState } from "../../store/user";
 import { useRecoilState } from "recoil";
 import AuthApi from "../../api/auth/authApi";
+import Swal from "sweetalert2";
 
 const useLogin = () => {
   const navigate = useNavigate();
@@ -17,9 +18,19 @@ const useLogin = () => {
         setUserInfo(user);
         localStorage.setItem("access_token", token);
         navigate("/");
+        Swal.fire({
+          title: "로그인 성공!",
+          icon: "success",
+          confirmButtonText: "확인",
+        });
       })
       .catch(() => {
-        console.log("hi");
+        Swal.fire({
+          title: "실패...",
+          text: "로그인에 실패 하였습니다. 다시 시도 하여 주십시요.",
+          icon: "error",
+          confirmButtonText: "확인",
+        });
       });
   };
   return { tryLogin, setEmail, setPassword, userInfo };
