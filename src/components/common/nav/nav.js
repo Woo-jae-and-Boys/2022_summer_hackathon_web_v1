@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BiUser } from "react-icons/bi";
+import { GrFormSubtract } from "react-icons/gr";
 
 import styled from "styled-components";
 
@@ -14,9 +14,10 @@ const Container = styled.div`
     font-weight: 600;
     margin-right: 225px;
   }
-  #slash::after {
-    content: "|";
-    padding: 0 20px;
+
+  #slash {
+    font-size: 30px;
+    transform: rotate(90deg);
   }
   .navItem {
     display: flex;
@@ -28,10 +29,9 @@ const Container = styled.div`
   .searchBar {
   }
   .authContainer {
+    transform: translateX(600%);
+
     display: flex;
-    position: absolute;
-    right: 30px;
-    height: 50px;
     align-items: center;
   }
 `;
@@ -47,13 +47,15 @@ const Nav = () => {
       </div>
       <div className="searchBar">{/* <input></input> */}</div>
       <div className="authContainer">
-        <h2>
+        <h3>
           <Link to={"/signup"}>회원가입</Link>
-        </h2>
-        <div id="slash" />
-        <h2>
+        </h3>
+
+        <GrFormSubtract id="slash" />
+
+        <h3>
           <Link to={"/signin"}> 로그인</Link>
-        </h2>
+        </h3>
       </div>
     </Container>
   );
