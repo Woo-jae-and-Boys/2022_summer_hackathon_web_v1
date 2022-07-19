@@ -11,7 +11,7 @@ import pannel3 from "../../assets/img/pannel3.png";
 const Pannel = styled.div`
   width: 1000px;
   height: 300px;
-  background-color: red;
+  background-color: #efefef;
   margin-right: 50px;
   > img {
     width: 100%;
@@ -26,25 +26,25 @@ const PannelContainer = () => {
   ];
 
   return (
-    <Flicking
-      plugins={plugins}
-      defaultIndex={1}
-      align="center"
-      circular={true}
-      onMoveEnd={(e) => {
-        console.log(e);
-      }}
-    >
-      <Pannel>
-        <img src={pannel1} alt="pannel" />
-      </Pannel>
-      <Pannel>
-        <img src={pannel2} alt="pannel" />
-      </Pannel>
-      <Pannel>
-        <img src={pannel3} alt="pannel" />
-      </Pannel>
-    </Flicking>
+    <div style={{ marginBottom: "72px" }}>
+      <Flicking
+        plugins={plugins}
+        defaultIndex={1}
+        align="center"
+        circular={true}
+        onMoveEnd={(e) => {}}
+      >
+        <Pannel>
+          <img src={pannel1} alt="pannel" />
+        </Pannel>
+        <Pannel>
+          <img src={pannel2} alt="pannel" />
+        </Pannel>
+        <Pannel>
+          <img src={pannel3} alt="pannel" />
+        </Pannel>
+      </Flicking>
+    </div>
   );
 };
 
