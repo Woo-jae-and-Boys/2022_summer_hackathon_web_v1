@@ -36,13 +36,13 @@ const PannelContainer = () => {
       }}
     >
       <Pannel>
-        <img src={pannel1} />
+        <img src={pannel1} alt="pannel" />
       </Pannel>
       <Pannel>
-        <img src={pannel2} />
+        <img src={pannel2} alt="pannel" />
       </Pannel>
       <Pannel>
-        <img src={pannel3} />
+        <img src={pannel3} alt="pannel" />
       </Pannel>
     </Flicking>
   );
