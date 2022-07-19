@@ -20,6 +20,8 @@ const CreateContent = () => {
     });
   };
 
+  console.log(childValue);
+
   return (
     <CreateContentWrapper>
       <MainContainer>
