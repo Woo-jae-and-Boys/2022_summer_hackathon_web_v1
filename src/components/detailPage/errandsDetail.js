@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import TESTIMG from "../../assets/img/testImg.png";
-import { FcTwoSmartphones } from "react-icons/fc";
+import { FcSportsMode } from "react-icons/fc";
 import useDetail from "../../hooks/detail/useDetail";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  const { getProjectData } = useDetail();
+  const { getErrandsData } = useDetail();
   const [contentData, setContentData] = useState();
 
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const data = await getProjectData(id);
+      const data = await getErrandsData(id);
       setContentData(data);
     })();
   }, []);
@@ -24,8 +24,8 @@ const DetailPage = () => {
       <DetailPageWrapper>
         <MainContainer>
           <NavBar>
-            <FcTwoSmartphones style={{ fontSize: "33px" }} />
-            <NavBarMent>프로젝트</NavBarMent>
+            <FcSportsMode style={{ fontSize: "33px" }} />
+            <NavBarMent>심부름</NavBarMent>
           </NavBar>
 
           <ContentContanier>
@@ -40,7 +40,7 @@ const DetailPage = () => {
             </ContentImageContanier>
 
             <ContentButtonContanier>
-              <button>지원하기</button>
+              <button>내가 하기</button>
             </ContentButtonContanier>
           </ContentContanier>
 
@@ -48,7 +48,7 @@ const DetailPage = () => {
           <ContentInfoWrpper>
             <ProjectExplanationContainer>
               {/* title */}
-              <ProjectExplanationTitle>프로젝트 설명</ProjectExplanationTitle>
+              <ProjectExplanationTitle>심부름 설명</ProjectExplanationTitle>
 
               {/* content */}
               <ProjectExplanationContent>
@@ -63,14 +63,6 @@ const DetailPage = () => {
               {/* content */}
               <DoingItWorkContent>{contentData?.ToDo}</DoingItWorkContent>
             </DoingItWorkContainer>
-
-            <TeamInfoContanier>
-              {/* title */}
-              <TeamInfoTitle>팀 정보</TeamInfoTitle>
-
-              {/* content */}
-              <TeamInfoContent>{contentData?.teamInfo}</TeamInfoContent>
-            </TeamInfoContanier>
           </ContentInfoWrpper>
         </MainContainer>
       </DetailPageWrapper>

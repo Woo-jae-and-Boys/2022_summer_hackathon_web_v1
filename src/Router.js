@@ -8,6 +8,9 @@ import Login from "./components/login/login";
 import SignUp from "./components/signUp/signUp";
 import CEC from "./components/createContent/createErrandsContent";
 import CDC from "./components/createContent/createDeliveryContent";
+import ErrandsDetail from "./components/detailPage/errandsDetail";
+import DeliveryDetail from "./components/detailPage/deliveryDetail";
+
 const Router = () => {
   const { pathname } = useLocation();
   return (
@@ -16,6 +19,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detailpage/:id" element={<DetailPage />} />
+        <Route path="/errandsdetail/:id" element={<ErrandsDetail />} />
+        <Route path="/deliverydetail/:id" element={<DeliveryDetail />} />
         <Route path="/create/project" element={<CPC />} />
         <Route path="/create/errands" element={<CEC />} />
         <Route path="/create/delivery" element={<CDC />} />
