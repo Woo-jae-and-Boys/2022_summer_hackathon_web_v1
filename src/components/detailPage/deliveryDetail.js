@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import TESTIMG from "../../assets/img/testImg.png";
-import { FcTwoSmartphones } from "react-icons/fc";
+import { FcBusinessman } from "react-icons/fc";
 import useDetail from "../../hooks/detail/useDetail";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  const { getProjectData } = useDetail();
+  const { getDeliveryData } = useDetail();
   const [contentData, setContentData] = useState();
 
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const data = await getProjectData(id);
+      const data = await getDeliveryData(id);
       setContentData(data);
     })();
   }, []);
@@ -24,8 +24,8 @@ const DetailPage = () => {
       <DetailPageWrapper>
         <MainContainer>
           <NavBar>
-            <FcTwoSmartphones style={{ fontSize: "33px" }} />
-            <NavBarMent>프로젝트</NavBarMent>
+            <FcBusinessman style={{ fontSize: "33px" }} />
+            <NavBarMent>밥 친구</NavBarMent>
           </NavBar>
 
           <ContentContanier>
@@ -40,7 +40,7 @@ const DetailPage = () => {
             </ContentImageContanier>
 
             <ContentButtonContanier>
-              <button>지원하기</button>
+              <button>같이 먹기</button>
             </ContentButtonContanier>
           </ContentContanier>
 
@@ -48,28 +48,28 @@ const DetailPage = () => {
           <ContentInfoWrpper>
             <ProjectExplanationContainer>
               {/* title */}
-              <ProjectExplanationTitle>프로젝트 설명</ProjectExplanationTitle>
+              <ProjectExplanationTitle>먹을 음식</ProjectExplanationTitle>
 
               {/* content */}
               <ProjectExplanationContent>
-                {contentData?.content}
+                {contentData?.food}
               </ProjectExplanationContent>
             </ProjectExplanationContainer>
 
             <DoingItWorkContainer>
               {/* title */}
-              <DoingItWorkTitle>해야하는 일</DoingItWorkTitle>
+              <DoingItWorkTitle>먹을 장소</DoingItWorkTitle>
 
               {/* content */}
-              <DoingItWorkContent>{contentData?.ToDo}</DoingItWorkContent>
+              <DoingItWorkContent>{contentData?.location}</DoingItWorkContent>
             </DoingItWorkContainer>
 
             <TeamInfoContanier>
               {/* title */}
-              <TeamInfoTitle>팀 정보</TeamInfoTitle>
+              <TeamInfoTitle>기타 정보</TeamInfoTitle>
 
               {/* content */}
-              <TeamInfoContent>{contentData?.teamInfo}</TeamInfoContent>
+              <TeamInfoContent>{contentData?.otherInfo}</TeamInfoContent>
             </TeamInfoContanier>
           </ContentInfoWrpper>
         </MainContainer>
@@ -157,7 +157,7 @@ export const ContentButtonContanier = styled.div`
 
 export const ProjectExplanationContainer = styled.div`
   width: 100%;
-  padding: 60px 0;
+  padding: 40px 0;
   border-bottom: 2px solid #efefef;
 `;
 
@@ -174,7 +174,7 @@ export const ProjectExplanationContent = styled.div`
 
 export const DoingItWorkContainer = styled.div`
   width: 100%;
-  padding: 60px 0;
+  padding: 40px 0;
   border-bottom: 2px solid #efefef;
 `;
 
@@ -192,7 +192,7 @@ export const DoingItWorkContent = styled.div`
 
 export const TeamInfoContanier = styled.div`
   width: 100%;
-  padding: 60px 0;
+  padding: 40px 0;
   border-bottom: 2px solid #efefef;
 `;
 

@@ -2,15 +2,12 @@ import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import DropDown from "../common/dropDown/dropDown";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
 
 const CreateContent = () => {
   const [childValue, setChildValue] = useState("");
   const [imageSrc, setImageSrc] = useState("");
   const value = ["웹", "안드로이드", "서버", "iOS"];
-
-  const { id } = useParams();
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -22,9 +19,6 @@ const CreateContent = () => {
       };
     });
   };
-
-  console.log(childValue);
-  console.log(id);
 
   return (
     <CreateContentWrapper>
