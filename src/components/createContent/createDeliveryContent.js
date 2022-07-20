@@ -1,28 +1,14 @@
 import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import { useState } from "react";
-import { FcCamera, FcCameraIdentification } from "react-icons/fc";
 import ContentApi from "../../api/content/contentApi";
 
 const CreateContent = () => {
-  const [imageSrc, setImageSrc] = useState("");
-
   const [deliberyData, setDeliberyData] = useState({
     food: "",
     location: "",
     otehrInfo: "",
   });
-
-  const encodeFileToBase64 = (fileBlob) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(fileBlob);
-    return new Promise((resolve) => {
-      reader.onload = () => {
-        setImageSrc(reader.result);
-        resolve();
-      };
-    });
-  };
 
   const handleChange = (key, value) => {
     setDeliberyData((prev) => {

@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import { useState } from "react";
-import { FcCamera, FcCameraIdentification } from "react-icons/fc";
 import ContentApi from "../../api/content/contentApi";
 import { useNavigate } from "react-router-dom";
 
 const CreateContent = () => {
   const navigate = useNavigate();
-  const [imageSrc, setImageSrc] = useState("");
   const [errandData, setErrandData] = useState({
     title: "",
     content: "",
@@ -15,16 +13,16 @@ const CreateContent = () => {
     otherInfo: "",
   });
 
-  const encodeFileToBase64 = (fileBlob) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(fileBlob);
-    return new Promise((resolve) => {
-      reader.onload = () => {
-        setImageSrc(reader.result);
-        resolve();
-      };
-    });
-  };
+  // const encodeFileToBase64 = (fileBlob) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(fileBlob);
+  //   return new Promise((resolve) => {
+  //     reader.onload = () => {
+  //       setImageSrc(reader.result);
+  //       resolve();
+  //     };
+  //   });
+  // };
 
   const handleChange = (key, value) => {
     setErrandData((prev) => {

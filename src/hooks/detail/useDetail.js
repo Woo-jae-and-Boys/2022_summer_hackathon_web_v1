@@ -1,8 +1,9 @@
 import Swal from "sweetalert2";
 import DetailApi from "../../api/detail/detailApi";
+import { useCallback } from "react";
 
 const useDetail = () => {
-  const getProjectData = async (id) => {
+  const getProjectData = useCallback(async (id) => {
     try {
       const { data } = await DetailApi.getProjectContentData(id);
 
@@ -15,9 +16,9 @@ const useDetail = () => {
       });
       return error;
     }
-  };
+  }, []);
 
-  const getErrandsData = async (id) => {
+  const getErrandsData = useCallback(async (id) => {
     try {
       const { data } = await DetailApi.getErrandsContentData(id);
       Swal.fire({
@@ -35,9 +36,9 @@ const useDetail = () => {
       });
       return error;
     }
-  };
+  }, []);
 
-  const getDeliveryData = async (id) => {
+  const getDeliveryData = useCallback(async (id) => {
     try {
       const { data } = await DetailApi.getDeliveryContentData(id);
       return data;
@@ -49,7 +50,7 @@ const useDetail = () => {
       });
       return error;
     }
-  };
+  }, []);
 
   return {
     getProjectData,
