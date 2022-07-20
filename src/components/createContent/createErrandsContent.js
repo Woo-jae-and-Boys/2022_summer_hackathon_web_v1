@@ -3,8 +3,10 @@ import { FcClapperboard } from "react-icons/fc";
 import { useState } from "react";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
 import ContentApi from "../../api/content/contentApi";
+import { useNavigate } from "react-router-dom";
 
 const CreateContent = () => {
+  const navigate = useNavigate();
   const [imageSrc, setImageSrc] = useState("");
   const [errandData, setErrandData] = useState({
     title: "",
@@ -33,7 +35,9 @@ const CreateContent = () => {
   };
 
   const createProject = () => {
-    ContentApi.creaetContent("errands", errandData).then((data) => {});
+    ContentApi.creaetContent("errands", errandData).then((data) => {
+      navigate("/");
+    });
   };
 
   return (
