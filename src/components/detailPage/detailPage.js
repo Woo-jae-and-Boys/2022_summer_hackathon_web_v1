@@ -19,7 +19,7 @@ const DetailPage = () => {
       const data = await getProjectData(id);
       setContentData(data);
     })();
-  }, []);
+  }, [getProjectData, id]);
 
   return (
     <>

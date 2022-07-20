@@ -16,7 +16,7 @@ const DetailPage = () => {
       const data = await getDeliveryData(id);
       setContentData(data);
     })();
-  }, []);
+  }, [id, getDeliveryData]);
 
   return (
     <>
