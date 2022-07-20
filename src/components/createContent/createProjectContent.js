@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import DropDown from "../common/dropDown/dropDown";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ContentApi from "../../api/content/contentApi";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
@@ -29,6 +30,8 @@ const CreateContent = () => {
   const [childValue, setChildValue] = useState("");
   const [imageSrc, setImageSrc] = useState("");
 
+  const { id } = useParams();
+
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
     reader.readAsDataURL(fileBlob);
@@ -40,6 +43,8 @@ const CreateContent = () => {
     });
   };
 
+  console.log(childValue);
+  console.log(id);
   const createProject = () => {
     setProjcetData((prev) => {
       let newData = { ...prev };

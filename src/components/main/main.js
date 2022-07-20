@@ -3,7 +3,10 @@ import PannelContainer from "./pannelContainer";
 import styled from "styled-components";
 import useMain from "../../hooks/main/useMain";
 import { AiOutlinePlus } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import BAG from "../../assets/img/1.png";
+import FOOD from "../../assets/img/2.png";
+import LAPTOP from "../../assets/img/3.png";
 
 const Wrapper = styled.div`
   display: flex;
@@ -55,14 +58,40 @@ const AddBtn = styled.button`
   background-color: #ff91a0;
   border-radius: 50% 50% 0 50%;
   border: none;
+  cursor: pointer;
 `;
 
 const AddList = styled.div`
   width: 100px;
-  height: 298px;
-  transform: translateY(86px);
+  height: 350px;
+  transform: translateY(58px);
   background: #fcafaf;
-  border-radius: 30% 40% 0 20%;
+  display: grid;
+  justify-content: center;
+`;
+
+const Box = styled.div`
+  width: 100px;
+  height: 100px;
+  transform: translateY(110px);
+  border-radius: 50%;
+  background-color: #fcafaf;
+`;
+
+const ImgBox = styled.div`
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  transform: translateY(-20px);
+  cursor: pointer;
+`;
+
+const Img = styled.img`
+  width: 60%;
 `;
 
 const Main = () => {
@@ -76,6 +105,7 @@ const Main = () => {
   } = useMain();
 
   const [visible, setvisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProjectItems();
@@ -135,13 +165,28 @@ const Main = () => {
         </>
 
         <AddContainer>
-          {visible && <AddList></AddList>}
+          {visible && (
+            <>
+              <Box />
+              <AddList>
+                <ImgBox onClick={() => navigate("/create/project")}>
+                  <Img style={{ width: "60px" }} src={LAPTOP} alt="노트북" />
+                </ImgBox>
+                <ImgBox onClick={() => navigate("/create/errands")}>
+                  <Img src={BAG} alt="바구니" />
+                </ImgBox>
+                <ImgBox onClick={() => navigate("/create/delivery")}>
+                  <Img src={FOOD} alt="음식" />
+                </ImgBox>
+              </AddList>
+            </>
+          )}
           <AddBtn
             onClick={() => {
               setvisible((prev) => !prev);
             }}
           >
-            <AiOutlinePlus size={"50px"} />
+            <AiOutlinePlus size={"50px"} color={"white"} />
           </AddBtn>
         </AddContainer>
       </Container>
