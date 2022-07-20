@@ -10,6 +10,11 @@ class MainApi {
     const { data } = await customAxios.get("/errands");
     return data;
   }
+
+  async getDeliveryItems() {
+    const { data } = await customAxios.get("/delivery");
+    return data;
+  }
 }
 
 export default new MainApi();

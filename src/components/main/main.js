@@ -66,15 +66,22 @@ const AddList = styled.div`
 `;
 
 const Main = () => {
-  const { getProjectItems, projectItems, getErrandItems, errandItems } =
-    useMain();
+  const {
+    getProjectItems,
+    projectItems,
+    getErrandItems,
+    errandItems,
+    deliveryData,
+    getDeliveryData,
+  } = useMain();
 
   const [visible, setvisible] = useState(false);
 
   useEffect(() => {
     getProjectItems();
     getErrandItems();
-  }, [getProjectItems, getErrandItems]);
+    getDeliveryData();
+  }, [getProjectItems, getErrandItems, getDeliveryData]);
   return (
     <Wrapper>
       <PannelContainer />
@@ -113,7 +120,20 @@ const Main = () => {
 
         <>
           <h1>현재 모집중인 밥 친구</h1>
+          {deliveryData && (
+            <div className="list">
+              {deliveryData.map((item) => (
+                <Link to={`/delivery/${item.id}`} key={item.id}>
+                  <ItemBox>
+                    <div></div>
+                    <h2>{item.food}</h2>
+                  </ItemBox>
+                </Link>
+              ))}
+            </div>
+          )}
         </>
+
         <AddContainer>
           {visible && <AddList></AddList>}
           <AddBtn

@@ -2,9 +2,16 @@ import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import { useState } from "react";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
+import ContentApi from "../../api/content/contentApi";
 
 const CreateContent = () => {
   const [imageSrc, setImageSrc] = useState("");
+
+  const [deliberyData, setDeliberyData] = useState({
+    food: "",
+    location: "",
+    otehrInfo: "",
+  });
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -14,6 +21,21 @@ const CreateContent = () => {
         setImageSrc(reader.result);
         resolve();
       };
+    });
+  };
+
+  const handleChange = (key, value) => {
+    setDeliberyData((prev) => {
+      let newData = { ...prev };
+      newData[key] = value;
+      return newData;
+    });
+  };
+
+  const createProject = () => {
+    console.log(deliberyData);
+    ContentApi.creaetContent("delivery", deliberyData).then((data) => {
+      console.log(data);
     });
   };
 
@@ -52,40 +74,48 @@ const CreateContent = () => {
         {/* 제목 */}
         <TitleAndDevPositionContainer>
           <TitleContainer>
-            <div>제목</div>
-            <TitleInput type="text" placeholder="제목 입력" />
+            <div>배달 음식</div>
+            <TitleInput
+              type="text"
+              placeholder="배달음식 입력"
+              onChange={(e) => {
+                handleChange("food", e.target.value);
+              }}
+            />
           </TitleContainer>
         </TitleAndDevPositionContainer>
 
         <ProjectExplanationAndDoingItWorkContainer>
           <ProjectExplanationWrapper>
-            <div>배달 음식</div>
-            <ProjectExplanationInput placeholder="배달 음식을 적어 주세요." />
+            <div>장소</div>
+            <DoingItWorkInput
+              type="text"
+              placeholder="장소를 입력해주세요."
+              onChange={(e) => {
+                handleChange("location", e.target.value);
+              }}
+            />
           </ProjectExplanationWrapper>
 
           <DoingItWorkContainer>
-            <div>해야할 일</div>
-            <DoingItWorkInput
-              type="text"
-              placeholder="해야할 일을 적어 주세요."
+            <div>기타 정보</div>
+            <ProjectExplanationInput
+              placeholder="기타 정보를 적어 주세요."
+              onChange={(e) => {
+                handleChange("otherInfo", e.target.value);
+              }}
             />
           </DoingItWorkContainer>
         </ProjectExplanationAndDoingItWorkContainer>
 
-        <TeamInfoAndOthersContanier>
-          <TeamInfoContanier>
-            <div>배달 정보</div>
-            <TeamInfoInput type="text" placeholder="배달 정보를 적어주세요." />
-          </TeamInfoContanier>
-
-          <OthersContanier>
-            <div>기타 정보</div>
-            <OthersInput type="text" placeholder="기타 정보를 적어주세요." />
-          </OthersContanier>
-        </TeamInfoAndOthersContanier>
-
         <CreateContentSubmitButton>
-          <button>의뢰 하기</button>
+          <button
+            onClick={() => {
+              createProject();
+            }}
+          >
+            의뢰 하기
+          </button>
         </CreateContentSubmitButton>
       </MainContainer>
     </CreateContentWrapper>
