@@ -22,7 +22,7 @@ const CreateContent = () => {
       <MainContainer>
         <NavBar>
           <FcClapperboard style={{ fontSize: "33px" }} />
-          <NavBarMent>프로젝트 의뢰하기</NavBarMent>
+          <NavBarMent>밥 친구 찾기</NavBarMent>
         </NavBar>
 
         <ContentImageContainer>
