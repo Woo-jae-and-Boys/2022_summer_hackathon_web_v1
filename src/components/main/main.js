@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BAG from "../../assets/img/1.png";
 import FOOD from "../../assets/img/2.png";
 import LAPTOP from "../../assets/img/3.png";
+import config from "../../config/config.json";
 
 const Wrapper = styled.div`
   display: flex;
@@ -123,7 +124,20 @@ const Main = () => {
               {projectItems.map((item) => (
                 <Link to={`/project/${item.id}`} key={item.id}>
                   <ItemBox>
-                    <div></div>
+                    <div>
+                      {item.img && (
+                        <img
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                          id="img"
+                          src={`${config.SERVER}/upload/${item.img}`}
+                          alt="img"
+                        />
+                      )}
+                    </div>
                     <h2>{item.title}</h2>
                     <h3>{item.platForm}</h3>
                   </ItemBox>

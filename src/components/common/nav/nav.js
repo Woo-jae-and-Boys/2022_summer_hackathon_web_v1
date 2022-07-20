@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { GrFormSubtract } from "react-icons/gr";
-
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -40,6 +40,8 @@ const Container = styled.div`
 `;
 
 const Nav = () => {
+  const token = localStorage.getItem("access_token");
+  const navigate = useNavigate();
   return (
     <Container>
       <h1>
@@ -52,15 +54,29 @@ const Nav = () => {
       </div>
       <div className="searchBar">{/* <input></input> */}</div>
       <div className="authContainer">
-        <h3>
-          <Link to={"/signup"}>회원가입</Link>
-        </h3>
+        {!token ? (
+          <>
+            <h3>
+              <Link to={"/signup"}>회원가입</Link>
+            </h3>
 
-        <GrFormSubtract id="slash" />
+            <GrFormSubtract id="slash" />
 
-        <h3>
-          <Link to={"/signin"}> 로그인</Link>
-        </h3>
+            <h3>
+              <Link to={"/signin"}> 로그인</Link>
+            </h3>
+          </>
+        ) : (
+          <h3
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              localStorage.removeItem("access_token");
+              navigate("/signin");
+            }}
+          >
+            로그아웃
+          </h3>
+        )}
       </div>
     </Container>
   );

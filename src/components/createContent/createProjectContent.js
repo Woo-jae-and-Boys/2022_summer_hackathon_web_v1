@@ -5,9 +5,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ContentApi from "../../api/content/contentApi";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CreateContent = () => {
   const value = ["웹", "안드로이드", "서버", "iOS"];
+  const navigate = useNavigate();
+  const [file, setFile] = useState();
   const [projcetData, setProjcetData] = useState({
     title: "",
     content: "",
@@ -42,17 +46,29 @@ const CreateContent = () => {
       };
     });
   };
-
-  console.log(childValue);
-  console.log(id);
   const createProject = () => {
+    var formData = new FormData();
+    formData.append("file", file);
+    formData.append("title", projcetData.title);
+    formData.append("content", projcetData.content);
+    formData.append("ToDo", projcetData.ToDo);
+    formData.append("otherInfo", projcetData.otherInfo);
+    formData.append("teamInfo", projcetData.teamInfo);
+    formData.append("platForm", childValue);
+
     setProjcetData((prev) => {
       let newData = { ...prev };
       newData["platForm"] = childValue;
       return newData;
     });
-    ContentApi.creaetContent("project", projcetData).then((data) => {
+    ContentApi.creaetContent("project", formData).then((data) => {
+      // navigate("/");
       console.log(data);
+      Swal.fire({
+        title: "로그인 성공!",
+        icon: "success",
+        confirmButtonText: "확인",
+      });
     });
   };
 
@@ -83,6 +99,7 @@ const CreateContent = () => {
               type="file"
               onChange={(e) => {
                 encodeFileToBase64(e.target.files[0]);
+                setFile(e.target.files[0]);
               }}
             />
           </Filebox>
