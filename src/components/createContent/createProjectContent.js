@@ -1,13 +1,33 @@
 import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import DropDown from "../common/dropDown/dropDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ContentApi from "../../api/content/contentApi";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
 
 const CreateContent = () => {
+  const value = ["웹", "안드로이드", "서버", "iOS"];
+  const [projcetData, setProjcetData] = useState({
+    title: "",
+    content: "",
+    ToDo: "",
+    platForm: "",
+    teamInfo: "",
+    otherInfo: "",
+  });
+
+  useEffect(() => {}, [projcetData]);
+
+  const handleChange = (key, value) => {
+    setProjcetData((prev) => {
+      let newData = { ...prev };
+      newData[key] = value;
+      return newData;
+    });
+  };
+
   const [childValue, setChildValue] = useState("");
   const [imageSrc, setImageSrc] = useState("");
-  const value = ["웹", "안드로이드", "서버", "iOS"];
 
   const encodeFileToBase64 = (fileBlob) => {
     const reader = new FileReader();
@@ -20,7 +40,16 @@ const CreateContent = () => {
     });
   };
 
-  console.log(childValue);
+  const createProject = () => {
+    setProjcetData((prev) => {
+      let newData = { ...prev };
+      newData["platForm"] = childValue;
+      return newData;
+    });
+    ContentApi.creaetContent("project", projcetData).then((data) => {
+      console.log(data);
+    });
+  };
 
   return (
     <CreateContentWrapper>
@@ -58,7 +87,13 @@ const CreateContent = () => {
         <TitleAndDevPositionContainer>
           <TitleContainer>
             <div>제목</div>
-            <TitleInput type="text" placeholder="제목 입력" />
+            <TitleInput
+              type="text"
+              placeholder="제목 입력"
+              onChange={(e) => {
+                handleChange("title", e.target.value);
+              }}
+            />
           </TitleContainer>
 
           <DevPositionContainer>
@@ -75,7 +110,12 @@ const CreateContent = () => {
         <ProjectExplanationAndDoingItWorkContainer>
           <ProjectExplanationWrapper>
             <div>프로젝트 설명</div>
-            <ProjectExplanationInput placeholder="프로젝트를 설명해 주세요." />
+            <ProjectExplanationInput
+              placeholder="프로젝트를 설명해 주세요."
+              onChange={(e) => {
+                handleChange("content", e.target.value);
+              }}
+            />
           </ProjectExplanationWrapper>
 
           <DoingItWorkContainer>
@@ -83,6 +123,9 @@ const CreateContent = () => {
             <DoingItWorkInput
               type="text"
               placeholder="해야할 일을 적어 주세요."
+              onChange={(e) => {
+                handleChange("ToDo", e.target.value);
+              }}
             />
           </DoingItWorkContainer>
         </ProjectExplanationAndDoingItWorkContainer>
@@ -93,17 +136,32 @@ const CreateContent = () => {
             <TeamInfoInput
               type="text"
               placeholder="팀 설명 & 정보를 적어주세요."
+              onChange={(e) => {
+                handleChange("teamInfo", e.target.value);
+              }}
             />
           </TeamInfoContanier>
 
           <OthersContanier>
             <div>기타 정보</div>
-            <OthersInput type="text" placeholder="기타 정보를 적어주세요." />
+            <OthersInput
+              type="text"
+              placeholder="기타 정보를 적어주세요."
+              onChange={(e) => {
+                handleChange("otherInfo", e.target.value);
+              }}
+            />
           </OthersContanier>
         </TeamInfoAndOthersContanier>
 
         <CreateContentSubmitButton>
-          <button>의뢰 하기</button>
+          <button
+            onClick={() => {
+              createProject();
+            }}
+          >
+            의뢰 하기
+          </button>
         </CreateContentSubmitButton>
       </MainContainer>
     </CreateContentWrapper>
