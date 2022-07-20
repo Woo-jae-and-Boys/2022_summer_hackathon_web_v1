@@ -8,7 +8,6 @@ const useDetail = () => {
 
       return data;
     } catch (error) {
-      console.log(error);
       Swal.fire({
         title: "실패...",
         icon: "error",
@@ -29,7 +28,6 @@ const useDetail = () => {
 
       return data;
     } catch (error) {
-      console.log(error);
       Swal.fire({
         title: "실패...",
         icon: "error",
@@ -44,7 +42,6 @@ const useDetail = () => {
       const { data } = await DetailApi.getDeliveryContentData(id);
       return data;
     } catch (error) {
-      console.log(error);
       Swal.fire({
         title: "실패...",
         icon: "error",

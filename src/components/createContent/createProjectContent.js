@@ -54,18 +54,18 @@ const CreateContent = () => {
     formData.append("teamInfo", projcetData.teamInfo);
     formData.append("platForm", childValue);
 
-    setProjcetData((prev) => {
-      let newData = { ...prev };
-      newData["platForm"] = childValue;
-      return newData;
-    });
-    ContentApi.creaetContent("project", formData).then((data) => {
-      // navigate("/");
-      console.log(data);
+    // setProjcetData((prev) => {
+    //   let newData = { ...prev };
+    //   newData["platForm"] = childValue;
+    //   return newData;
+    // });
+    ContentApi.creaetContent("project", formData).then(() => {
       Swal.fire({
-        title: "로그인 성공!",
+        title: "외뢰 성공!",
         icon: "success",
         confirmButtonText: "확인",
+      }).then(() => {
+        navigate("/");
       });
     });
   };

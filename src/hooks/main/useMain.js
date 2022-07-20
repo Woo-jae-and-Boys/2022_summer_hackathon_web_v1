@@ -8,13 +8,11 @@ const useMain = () => {
 
   const getProjectItems = useCallback(async () => {
     const { data } = await MainApi.getProjectItem();
-    console.log(data);
     setProjectItems(data);
   }, []);
 
   const getErrandItems = useCallback(async () => {
     const { data } = await MainApi.getErrandItems();
-    console.log(data);
     setErrandItems(data);
   }, []);
 

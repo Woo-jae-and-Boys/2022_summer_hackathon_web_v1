@@ -33,10 +33,7 @@ const CreateContent = () => {
   };
 
   const createProject = () => {
-    console.log(deliberyData);
-    ContentApi.creaetContent("delivery", deliberyData).then((data) => {
-      console.log(data);
-    });
+    ContentApi.creaetContent("delivery", deliberyData).then((data) => {});
   };
 
   return (
@@ -47,7 +44,7 @@ const CreateContent = () => {
           <NavBarMent>밥 친구 찾기</NavBarMent>
         </NavBar>
 
-        <ContentImageContainer>
+        {/* <ContentImageContainer>
           <ImgBox>
             {imageSrc ? (
               <img src={imageSrc} style={{ width: "101%" }} alt="preview-img" />
@@ -69,7 +66,7 @@ const CreateContent = () => {
               }}
             />
           </Filebox>
-        </ContentImageContainer>
+        </ContentImageContainer> */}
 
         {/* 제목 */}
         <TitleAndDevPositionContainer>

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import TESTIMG from "../../assets/img/testImg.png";
 import { FcTwoSmartphones } from "react-icons/fc";
 import useDetail from "../../hooks/detail/useDetail";
 import { useParams } from "react-router-dom";
+import config from "../../config/config.json";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const DetailPage = () => {
   const { getProjectData } = useDetail();
   const [contentData, setContentData] = useState();
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -17,7 +20,6 @@ const DetailPage = () => {
       setContentData(data);
     })();
   }, []);
-  console.log(contentData);
 
   return (
     <>
@@ -36,11 +38,26 @@ const DetailPage = () => {
 
             {/* img */}
             <ContentImageContanier>
-              <ContentImage src={TESTIMG} alt="배경사진" />
+              <ContentImage
+                src={`${config.SERVER}/upload/${contentData?.img}`}
+                alt="배경사진"
+              />
             </ContentImageContanier>
 
             <ContentButtonContanier>
-              <button>지원하기</button>
+              <button
+                onClick={() => {
+                  Swal.fire({
+                    title: "지원 성공!",
+                    icon: "success",
+                    confirmButtonText: "확인",
+                  }).then(() => {
+                    navigate("/");
+                  });
+                }}
+              >
+                지원하기
+              </button>
             </ContentButtonContanier>
           </ContentContanier>
 
@@ -70,6 +87,12 @@ const DetailPage = () => {
 
               {/* content */}
               <TeamInfoContent>{contentData?.teamInfo}</TeamInfoContent>
+            </TeamInfoContanier>
+            <TeamInfoContanier>
+              <TeamInfoTitle>기타 사항</TeamInfoTitle>
+
+              {/* content */}
+              <TeamInfoContent>{contentData?.otherInfo}</TeamInfoContent>
             </TeamInfoContanier>
           </ContentInfoWrpper>
         </MainContainer>

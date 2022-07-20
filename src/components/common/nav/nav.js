@@ -48,7 +48,9 @@ const Nav = () => {
         <Link to={"/"}>DAEINSO</Link>
       </h1>
       <div className="navItem">
-        <h2>프로젝트</h2>
+        <h2>
+          <a href="#project">프로젝트</a>
+        </h2>
         <h2>심부름</h2>
         <h2>배달</h2>
       </div>

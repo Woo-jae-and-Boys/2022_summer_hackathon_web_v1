@@ -33,7 +33,7 @@ const useSignUp = () => {
     });
     AuthApi.signUp(userInfo)
       .then(() => {
-        navigate("/");
+        navigate("/signin");
         Swal.fire({
           title: "회원가입 성공!",
           icon: "success",

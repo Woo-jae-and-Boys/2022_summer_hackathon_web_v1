@@ -118,11 +118,11 @@ const Main = () => {
       <PannelContainer />
       <Container>
         <>
-          <h1>현재 모집중인 개발자</h1>
+          <h1 id="project">현재 모집중인 개발자</h1>
           {projectItems && (
             <div className="list">
               {projectItems.map((item) => (
-                <Link to={`/project/${item.id}`} key={item.id}>
+                <Link to={`/detailpage/${item.id}`} key={item.id}>
                   <ItemBox>
                     <div>
                       {item.img && (
@@ -147,11 +147,11 @@ const Main = () => {
           )}
         </>
         <>
-          <h1>현재 모집중인 심부름꾼</h1>
+          <h1 id="errands">현재 모집중인 심부름꾼</h1>
           {errandItems && (
             <div className="list">
               {errandItems.map((item) => (
-                <Link to={`/errands/${item.id}`} key={item.id}>
+                <Link to={`/errandsdetail/${item.id}`} key={item.id}>
                   <ItemBox>
                     <div></div>
                     <h2>{item.title}</h2>
@@ -167,7 +167,7 @@ const Main = () => {
           {deliveryData && (
             <div className="list">
               {deliveryData.map((item) => (
-                <Link to={`/delivery/${item.id}`} key={item.id}>
+                <Link to={`/deliverydetail/${item.id}`} key={item.id}>
                   <ItemBox>
                     <div></div>
                     <h2>{item.food}</h2>

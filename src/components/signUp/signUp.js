@@ -30,6 +30,7 @@ const SignUp = () => {
               onChange={(e) => {
                 handleChange("password", e.target.value);
               }}
+              type={"password"}
             ></input>
           </div>
           <div className="name">
@@ -51,6 +52,7 @@ const SignUp = () => {
           <div className="thch stack">
             <h4>기술스택</h4>
             <DropDown
+              defaultValue={"분야"}
               childValue={POSITION}
               setSeletedValue={setSelectedValue}
             />

@@ -17,7 +17,6 @@ const DetailPage = () => {
       setContentData(data);
     })();
   }, []);
-  console.log(contentData);
 
   return (
     <>
