@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { FcClapperboard } from "react-icons/fc";
 import DropDown from "../common/dropDown/dropDown";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import ContentApi from "../../api/content/contentApi";
 import { FcCamera, FcCameraIdentification } from "react-icons/fc";
