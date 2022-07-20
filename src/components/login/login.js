@@ -33,6 +33,9 @@ const Login = () => {
                   type="text"
                   className="in"
                   placeholder="이메일을 입력해 주세요"
+                  onKeyUp={(e) => {
+                    if (e.key === "Enter") tryLogin();
+                  }}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -44,6 +47,9 @@ const Login = () => {
                   type="password"
                   className="inin"
                   placeholder="비밀번호를 입력해 주세요"
+                  onKeyUp={(e) => {
+                    if (e.key === "Enter") tryLogin();
+                  }}
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
